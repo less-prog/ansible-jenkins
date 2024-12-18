@@ -1,7 +1,5 @@
-- name: Install NGINX
+- name: install nginx
   hosts: all
-  tasks:
-    - name: Install NGINX package
-      ansible.builtin.apt:
-        name: nginx
-        state: present
+  become: yes
+  roles:
+    - nginx
