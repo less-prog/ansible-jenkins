@@ -11,10 +11,11 @@
   service:
     name: nginx
     state: started
+    enabled: yes  # Assurez-vous que nginx démarre au démarrage du système
   become: yes
 
-- name: index
+- name: deploy index.html
   template:
     src: index.html.j2
     dest: /var/www/html/index.html
-
+  become: yes  # Assurez-vous d'avoir les droits pour écrire dans ce répertoire
